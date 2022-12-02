@@ -30,16 +30,24 @@ function Header() {
           </Nav>
 
           <div>
-            <Nav
+          <Nav
             className="d-flex me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}>
             <Nav.Link as={Link} to='/'>Home</Nav.Link>
             <Nav.Link as={Link} to='orders'>Order</Nav.Link>
+           
+            {
+              user && <>
+              <Nav.Link as={Link} to='addproduct'>AddBooks</Nav.Link>
+              <Nav.Link as={Link} to='manageproduct'>ManageBooks</Nav.Link>
+              </>
+            }
+
             <Nav.Link as={Link} to='deals'>Deals</Nav.Link>
             <Nav.Link as={Link} to='about'>About</Nav.Link>
             {
               user ?
-              <Button onClick={handleSignOut} as={Link} to='login' variant="success">SignOut</Button>
+              <Button className='login_btn' onClick={handleSignOut} as={Link} to='login' variant="success">SignOut</Button>
               :
               <Button as={Link} to='login' variant="success">Login</Button>
             }
